@@ -1,0 +1,37 @@
+.header {
+  background: #fff;
+  height: 47px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    .nav-bar {
+      @include reset();
+      display: flex;
+      .nav-item {
+        @include reset();
+        margin-right: 22px;
+        line-height: 47px;
+        list-style-type: none;
+        .nav-link {
+          border-bottom: #fff 3px solid;
+          color: $links-header;
+          font-size: 0.8em;
+          font-weight: bold;
+          padding: 0 10px 12px 10px;
+        }
+        .nav-link:hover {
+          border-bottom: $links 3px solid;
+          color: $links;
+        }
+      }
+    }
+    .logo {
+      @include reset();
+      font-size: 1.5em;
+      line-height: 47px;
+    }
+  }
+}
