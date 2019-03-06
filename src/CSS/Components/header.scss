@@ -11,10 +11,10 @@
     width: 100%;
   }
   .logo {
-    margin-bottom: 20px;
+    margin-bottom: 2%;
     cursor: pointer;
     .logo-img {
-      width: 9%;
+      width: 10%;
     }
   }
   .link {
@@ -40,7 +40,7 @@
       list-style-type: none;
       font-size: 100%;
       font-weight: bold;
-      padding-top: 2.5%;
+      padding-top: 1.5%;
       margin: 0% 2% 0% 2%;
       border-bottom: rgb(145, 115, 145) 3px solid;
       flex-grow: 1;
@@ -62,7 +62,6 @@
     .search-form {
       @include reset();
       display: flex;
-      padding-top: 1%;
       border-radius: 1%;
       flex-grow: 6;
       align-content: flex-end;

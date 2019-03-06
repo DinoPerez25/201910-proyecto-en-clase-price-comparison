@@ -68,9 +68,11 @@ body {
   background: $gray-light;
 }
 .button-cancel {
-  background: $white;
+  background: $red;
   border: 1px solid $red;
-  color: $red;
+  color: $text-color;
+  border-radius: 30px;
+  margin-bottom: 20px;
 }
 .button-cancel:hover {
   border: 1px solid #aeaeae;
@@ -81,11 +83,9 @@ body {
   margin: 0 auto;
   padding: 10px 20px 10px 20px;
 }
-.form div {
-  margin-bottom: 20px;
-}
+
 .form div:last-child {
-  text-align: right;
+  text-align: center;
 }
 .form * {
   outline: 0;
