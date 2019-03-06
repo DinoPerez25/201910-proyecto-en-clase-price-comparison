@@ -30,7 +30,7 @@
     @include reset();
     display: flex;
     background-color: rgb(145, 115, 145);
-    border-bottom: $palet-1 15px solid;
+    border-bottom: $palet-1 10px solid;
     flex-direction: row;
     flex-flow: wrap;
 
@@ -52,7 +52,7 @@
       }
     }
     .nav-item:hover {
-      border-top: rgb(50, 32, 50) 3px solid;
+      border-top: rgb(50, 32, 50) 4px solid;
 
       a {
         color: rgb(50, 32, 50) !important;

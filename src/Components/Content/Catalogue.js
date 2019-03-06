@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Catalogue extends Component {
   render() {
@@ -31,12 +32,14 @@ class Catalogue extends Component {
           </a>
         </div>
         <div className="cart">
-          <button className="button button-primary cart-button">
-            <img
-              className="cart-button-icon"
-              src={require("../../CSS/icons/PNG/cart.png")}
-            />
-          </button>
+          <Link to="/cart">
+            <button className="button button-primary cart-button float">
+              <img
+                className="cart-button-icon"
+                src={require("../../CSS/icons/PNG/cart.png")}
+              />
+            </button>
+          </Link>
         </div>
       </section>
     );

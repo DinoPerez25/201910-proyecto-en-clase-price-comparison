@@ -78,6 +78,11 @@ body {
   border: 1px solid #aeaeae;
   color: #aeaeae;
 }
+.float {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
 /*form*/
 .form {
   margin: 0 auto;
