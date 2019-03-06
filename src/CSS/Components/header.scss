@@ -1,11 +1,15 @@
 .header {
   display: flex;
   background: #fff;
-  position: fixed;
+  position: relative;
   width: 100%;
   z-index: 1;
   flex-direction: column;
   justify-content: center;
+  a {
+    color: $links;
+    text-decoration: none;
+  }
 
   .container {
     width: 100%;

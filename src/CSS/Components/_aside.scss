@@ -1,18 +1,13 @@
 .left-aside {
-  grid-area: left;
   display: flex;
-  width: 30%;
+  background-color: #f1f1f1;
+  flex-direction: column;
   height: 100%;
 
   ul {
+    @include reset();
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 25%;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+
     li a {
       display: block;
       color: #000;

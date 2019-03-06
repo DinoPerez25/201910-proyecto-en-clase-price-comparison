@@ -4,8 +4,11 @@ class Catalogue extends Component {
   render() {
     return (
       <section className="catalogue">
-        <div>
-          <h1> hola aaaaa aa a aa a aaa aaa a aCatalogue</h1>
+        <div className="container-flex-v">
+          <div>
+            <p>Catálogo de productos</p>
+            <p>Última fecha de actualización: Marzo 5 del 2019</p>
+          </div>
         </div>
       </section>
     );
