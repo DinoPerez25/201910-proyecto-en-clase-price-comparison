@@ -77,7 +77,7 @@ class Cart extends Component {
           </a>
           <button className="button button-primary button-cancel">X</button>
         </div>
-        <div className="buttons-cart float">
+        <div className="buttons-cart">
           <button className="button button-primary search-button button-round">
             <img
               className="button-img"

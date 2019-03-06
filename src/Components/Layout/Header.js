@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
+
 class Header extends Component {
   render() {
     return (
@@ -33,17 +34,16 @@ class Header extends Component {
           <nav aria-labelledby="mainmenulabel">
             <ul className="nav-bar" role="menu">
               <li className="nav-item">
-                <Link to="/">Home</Link>
+                <Link to="/">Catálogo</Link>
               </li>
-              <li className="nav-item" role="menuitem">
-                <Link to="/cart">Carrito</Link>
-              </li>
-
               <li className="nav-item" role="menuitem">
                 <Link to="/profile">Perfil</Link>
               </li>
               <li className="nav-item" role="menuitem">
-                <Link to="/contact">Contacto</Link>
+                <Link to="/cart">Carrito</Link>
+              </li>
+              <li className="nav-item" role="menuitem">
+                <Link to="/history">Historial</Link>
               </li>
               <form className="form search-form">
                 <div>

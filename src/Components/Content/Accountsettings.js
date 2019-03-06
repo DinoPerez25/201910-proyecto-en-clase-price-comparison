@@ -6,7 +6,6 @@ class Accountsettings extends Component {
     return (
       <article className="accountsettings">
         <h2 className="title">Configuración de cuenta</h2>
-
         <div className="container-flex-h">
           <div>
             <form className="form">
