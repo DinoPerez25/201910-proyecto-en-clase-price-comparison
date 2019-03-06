@@ -36,16 +36,14 @@ class Header extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li className="nav-item" role="menuitem">
-                <Link to="/categories">Categorías</Link>
-              </li>
-              <li className="nav-item" role="menuitem">
                 <Link to="/cart">Carrito</Link>
               </li>
-              <li className="nav-item" role="menuitem">
-                <Link to="/list">Listas</Link>
-              </li>
+
               <li className="nav-item" role="menuitem">
                 <Link to="/profile">Perfil</Link>
+              </li>
+              <li className="nav-item" role="menuitem">
+                <Link to="/contact">Contacto</Link>
               </li>
               <form className="form search-form">
                 <div>

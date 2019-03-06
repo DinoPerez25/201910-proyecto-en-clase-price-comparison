@@ -1,6 +1,6 @@
 .footer {
   display: flex;
-  height: 100px;
-  justify-content: space-between;
-  background-color: bisque;
+  width: 100%;
+  border-top: $palet-1 4px solid;
+  background-color: #bdbdbd;
 }
