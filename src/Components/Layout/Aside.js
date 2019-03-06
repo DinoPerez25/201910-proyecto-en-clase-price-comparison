@@ -3,20 +3,38 @@ class Aside extends Component {
   render() {
     return (
       <section className="left-aside">
-        <ul>
-          <li>
-            <a>Verduras</a>
-          </li>
-          <li>
-            <a>Frutas</a>
-          </li>
-          <li>
-            <a>Carnes</a>
-          </li>
-          <li>
-            <a>Bebidas</a>
-          </li>
-        </ul>
+        <div>
+          <a className="head-categories">Categorías</a>
+          <ul>
+            <a className="section-categories">Verduras</a>
+            <li>
+              <a>Apio</a>
+            </li>
+            <li>
+              <a>Cebolla</a>
+            </li>
+            <a className="section-categories">Frutas</a>
+            <li>
+              <a>Fresa</a>
+            </li>
+            <li>
+              <a>Maracuya</a>
+            </li>
+            <li>
+              <a>Limon</a>
+            </li>
+            <a className="section-categories">Carne</a>
+            <li>
+              <a>Res</a>
+            </li>
+            <li>
+              <a>Cerdo</a>
+            </li>
+            <li>
+              <a>Pollo</a>
+            </li>
+          </ul>
+        </div>
       </section>
     );
   }

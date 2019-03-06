@@ -8,38 +8,44 @@ class Header extends Component {
         <div className="container-flex-v">
           <div className="loginsButtons">
             <a className="link" href="#">
-              Singin
+              <Link to="/signin" className="nav-link">
+                Signin
+              </Link>
             </a>
             <a>/</a>
             <a className="link" href="#">
-              Singup
+              <Link to="/signup" className="nav-link">
+                Signup
+              </Link>
             </a>
           </div>
           <div className="logo">
-            <img
-              className="logo-img"
-              src={require("../../Images/logo.png")}
-              alt="sacrappy-logo"
-              href="/"
-            />
+            <Link to="/" className="nav-link">
+              <img
+                className="logo-img"
+                src={require("../../Images/logo.png")}
+                alt="sacrappy-logo"
+                href="/"
+              />
+            </Link>
           </div>
 
           <nav aria-labelledby="mainmenulabel">
             <ul className="nav-bar" role="menu">
-              <li className="nav-item" role="menuitem">
-                Home
+              <li className="nav-item">
+                <Link to="/">Home</Link>
               </li>
               <li className="nav-item" role="menuitem">
-                Categorías
+                <Link to="/categories">Categorías</Link>
               </li>
               <li className="nav-item" role="menuitem">
-                Carrito
+                <Link to="/cart">Carrito</Link>
               </li>
               <li className="nav-item" role="menuitem">
-                Listas
+                <Link to="/list">Listas</Link>
               </li>
               <li className="nav-item" role="menuitem">
-                Perfil
+                <Link to="/profile">Perfil</Link>
               </li>
               <form className="form search-form">
                 <div>

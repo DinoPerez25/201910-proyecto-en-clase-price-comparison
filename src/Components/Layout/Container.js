@@ -5,7 +5,7 @@ import Aside from "./Aside";
 class Container extends Component {
   render() {
     return (
-      <section className="main container">
+      <section className="main">
         <Aside />
         <Catalogue />
       </section>
