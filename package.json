@@ -13,7 +13,8 @@
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dev-server",
+    "serve": "node server.js",
     "build": "webpack"
   },
   "devDependencies": {
