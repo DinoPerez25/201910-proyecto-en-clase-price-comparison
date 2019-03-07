@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Catalogue extends Component {
   render() {
     return (
-      <section className="catalogue">
+      <section className="catalogue ">
         <div className="catalogue-head">
           <p className="catalogue-title">Catálogo de productos</p>
           <p className="catalogue-subtitle">

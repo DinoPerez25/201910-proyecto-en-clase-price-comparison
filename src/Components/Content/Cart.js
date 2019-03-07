@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Cart extends Component {
   render() {
     return (
-      <section className="cart">
+      <section className="cart component-content">
         <div className="cart-head">
           <p className="cart-title">Lista de compra</p>
           <p className="cart-subtitle">

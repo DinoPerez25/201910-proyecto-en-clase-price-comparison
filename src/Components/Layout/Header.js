@@ -8,17 +8,13 @@ class Header extends Component {
       <header className="header container">
         <div className="container-flex-v">
           <div className="loginsButtons">
-            <a className="link" href="#">
-              <Link to="/signin" className="nav-link">
-                Signin
-              </Link>
-            </a>
+            <Link to="/signin" className="nav-link">
+              Signin
+            </Link>
             <a>/</a>
-            <a className="link" href="#">
-              <Link to="/signup" className="nav-link">
-                Signup
-              </Link>
-            </a>
+            <Link to="/signup" className="nav-link">
+              Signup
+            </Link>
           </div>
           <div className="logo">
             <Link to="/" className="nav-link">
@@ -31,20 +27,20 @@ class Header extends Component {
             </Link>
           </div>
 
-          <nav aria-labelledby="mainmenulabel">
-            <ul className="nav-bar" role="menu">
-              <li className="nav-item">
-                <Link to="/">Catálogo</Link>
-              </li>
-              <li className="nav-item" role="menuitem">
-                <Link to="/profile">Perfil</Link>
-              </li>
-              <li className="nav-item" role="menuitem">
-                <Link to="/cart">Carrito</Link>
-              </li>
-              <li className="nav-item" role="menuitem">
-                <Link to="/history">Historial</Link>
-              </li>
+          <nav className="nav-bar">
+            <Link to="/" className="nav-item">
+              Catálogo
+            </Link>
+            <Link to="/profile" className="nav-item">
+              Perfil
+            </Link>
+            <Link to="/cart" className="nav-item">
+              Carrito
+            </Link>
+            <Link to="/history" className="nav-item">
+              Historial
+            </Link>
+            <div>
               <form className="form search-form">
                 <div>
                   <label for="search">
@@ -67,7 +63,7 @@ class Header extends Component {
                   </button>
                 </div>
               </form>
-            </ul>
+            </div>
           </nav>
         </div>
       </header>

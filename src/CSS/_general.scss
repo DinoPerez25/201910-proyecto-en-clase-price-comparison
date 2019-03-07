@@ -5,6 +5,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.component-content {
+  padding: 50px 150px 50px 150px;
+}
+
 .main {
   display: grid;
   grid-template: "leftnavbar catalogue";
