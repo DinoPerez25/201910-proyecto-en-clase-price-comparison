@@ -15,20 +15,21 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/'
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: 3000,
+    port: 5000,
     compress: true,
     open: true,
     historyApiFallback: true
   },
-  mode: "development",
   watch: true,
+  mode: "development",
   module: {
     rules: [
-      {
+      { 
         test: /\.css$/,
         use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       },
@@ -46,7 +47,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+            plugins: ["@babel/plugin-proposal-class-properties"]
           }
         }
       },
@@ -58,13 +60,21 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpg|gif|ico)$/,
+        test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
           {
             loader: "file-loader",
             options: {
               outputPath: "images"
             }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader"
           }
         ]
       }

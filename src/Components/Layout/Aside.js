@@ -1,38 +1,66 @@
 import React, { Component } from "react";
+import {list} from '../../Services/firebase';
 class Aside extends Component {
-  render() {
+  constructor(){
+    super()		
+    this.state = {
+      categories : []
+    }
+  }
+
+  componentWillMount(){
+    list(`Categorias/`)
+		.on('value',snapshot=>{
+			const categories = snapshot.val()
+			let category, tmp=[], products=[]
+			for(category in categories){
+        list(`Categorias/${category}/Productos/`)
+        .on('value', snapshot=>{
+          const prods = snapshot.val()
+          let product, tmpp = []
+          for(product in prods){
+            tmpp.push({
+              id:product,
+              name:prods[product].nombre
+            })
+          }
+          products = tmpp;
+        })
+				tmp.push({
+					id:category,
+          name:categories[category].nombre,
+          products: products
+        })
+			}
+			this.setState({
+				categories:tmp
+      })
+    })
+  }
+
+
+  render() { 
     return (
       <section className="left-aside">
         <div>
           <a className="head-categories">Categorías</a>
           <ul>
-            <a className="section-categories">Verduras</a>
-            <li>
-              <a>Apio</a>
-            </li>
-            <li>
-              <a>Cebolla</a>
-            </li>
-            <a className="section-categories">Frutas</a>
-            <li>
-              <a>Fresa</a>
-            </li>
-            <li>
-              <a>Maracuya</a>
-            </li>
-            <li>
-              <a>Limon</a>
-            </li>
-            <a className="section-categories">Carne</a>
-            <li>
-              <a>Res</a>
-            </li>
-            <li>
-              <a>Cerdo</a>
-            </li>
-            <li>
-              <a>Pollo</a>
-            </li>
+            {
+              this.state.categories.length > 0?
+                this.state.categories.map(category=>{
+                  return <div>
+                    <a className="section-categories">{category.name}</a>
+                      {category.products.map(products=>{
+                        return  <li>
+                                  <a>{products.name}</a>
+                                </li>                      
+                      })}    
+                  </div>
+                })
+                
+              :
+              <p>No categories</p>
+            } 
           </ul>
         </div>
       </section>

@@ -6,18 +6,23 @@
   "repository": "",
   "author": "jestrade <jesuestrada@gmail.com>",
   "dependencies": {
+    "compress.js": "^1.1.2",
     "express": "^3.2.6",
+    "firebase": "^5.9.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-notifications": "^1.4.3",
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dev-server",
+    "serve": "node server.js",
     "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",

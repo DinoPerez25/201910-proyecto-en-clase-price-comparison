@@ -25,6 +25,15 @@
     align-content: flex-end;
     align-self: flex-end;
     padding: 1% 1% 1% 1%;
+    a {
+      text-decoration: underline
+    }
+  }
+
+  .loginsButtons > a:hover{
+    color: rgb(50, 32, 50) !important;
+    text-decoration: none;
+    cursor: pointer;
   }
   .nav-bar {
     @include reset();
