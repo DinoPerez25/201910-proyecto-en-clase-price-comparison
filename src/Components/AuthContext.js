@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {validateAuth,where} from './../Services/firebase'
+import {validateAuth,where,signOut} from './../Services/firebase'
 const AuthContext = React.createContext()
 
 class AuthProvider extends Component {
@@ -11,11 +11,9 @@ class AuthProvider extends Component {
     this.logout = this.logout.bind(this)
   }
 
-  login() {
-    validateAuth
-    .then((user)=>{
-      if(user!=null){
-        where("Usuarios","email",user.email)
+  login(email){
+    setTimeout(() => this.setState({ isAuth: true }), 1000)
+        where("Usuarios","email",email)
         .on('value',snapshot=>{
           const usuario = snapshot.val();
           let user
@@ -29,24 +27,42 @@ class AuthProvider extends Component {
               profileImage: usuario[user].profileImage
             })
           }
-      })
-      this.setState({ isAuth: true, email: user.email})
-      console.log(this.state)
-      }
-    })
+          this.setState({ isAuth: true})
+        })
+      this.setState({email: email})
   }
 
   logout() {
     this.setState({ isAuth: false })
+    localStorage.clear();
+    signOut()
   }
 
-  componentwillMount(){
+  componentDidMount(){
     validateAuth
     .then((user)=>{
-        if(user!=null){
+        if(user!=null)
           this.setState({
             isAuth:true,
             email: user.email
+        })
+        console.log(this.state)
+        if(this.state.user.length == 0){
+          where("Usuarios","email",email)
+          .on('value',snapshot=>{
+            const usuario = snapshot.val();
+            let user
+            for(user in usuario){
+              this.state.user = []
+              this.state.user.push({
+                id: user,
+                name: usuario[user].name,
+                email: usuario[user].email,
+                address: usuario[user].address,
+                profileImage: usuario[user].profileImage
+              })
+            }
+            this.setState({ isAuth: true})
           })
         }
     })

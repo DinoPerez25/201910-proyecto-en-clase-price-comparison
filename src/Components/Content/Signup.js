@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {create,createUser,upload} from '../../Services/firebase';
+import {create,createUser,upload} from '../../Services/api';
 import Compress from 'compress.js'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 const compress = new Compress()
@@ -12,7 +12,7 @@ class Signup extends Component {
         email: '',
         password:'',
         passwordConfirm:'',
-        image: ''
+        profileImage: ''
       }
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
@@ -41,7 +41,7 @@ class Signup extends Component {
         reader.readAsDataURL(Compress.convertBase64ToFile(img.data,img.ext))
         reader.onloadend = () => {
           this.setState({
-            image:reader.result
+            profileImage:reader.result
           })
         }
       })  	
@@ -57,27 +57,24 @@ class Signup extends Component {
           if(this.state.password!==this.state.passwordConfirm ){					
             NotificationManager.error('Las contraseñas no coinciden', 'Scrappy')
           }else{
-            createUser(this.state.email,this.state.password)
-            .then(()=>{
-              const user = {
-                name:this.state.name,
-                email:this.state.email,
-                profileImage: this.state.image,
-                address: ''
-              }
-              create('/Usuarios',user)
-              .then(()=>{						
+            createUser({
+              name: this.state.name,
+              email: this.state.email,
+              password: this.state.password,
+              profileImage: this.state.profileImage,  
+              admin: false
+            })
+           .then((response)=>{					
                   NotificationManager.success('Usuario creado', 'Scrappy')
                   this.setState({
                     name: '',
                     email: '',
                     password:'',
                     passwordConfirm:'',
-                    image:''
+                    profileImage:''
                   })
-                  //this.props.history.push("/Signin");
-              })
-            })					
+                  this.props.history.push("/Signin");
+              })					
             .catch(error=>{
               console.log(error)
               NotificationManager.error('Error al registrarse', 'Scrappy')
@@ -159,9 +156,9 @@ class Signup extends Component {
           </div>
          
             {
-              this.state.image &&
+              this.state.profileImage &&
               <div>
-                <img className="image" src={this.state.image} alt="profile-imagen" />
+                <img className="image" src={this.state.profileImage} alt="profile-imagen" />
               </div>
               
             }

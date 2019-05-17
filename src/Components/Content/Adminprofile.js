@@ -62,7 +62,7 @@ class Adminprofile extends Component {
     })
   }
 
-  componentWillMount(){
+  componentDidMount(){
 		list('Categorias')
 		.on('value',snapshot=>{
 			const categories = snapshot.val()

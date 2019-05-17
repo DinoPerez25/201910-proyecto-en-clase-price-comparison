@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {list} from '../../Services/firebase';
+import {list} from '../../Services/api';
 class Aside extends Component {
   constructor(){
     super()		
@@ -9,31 +9,13 @@ class Aside extends Component {
   }
 
   componentWillMount(){
-    list(`Categorias/`)
-		.on('value',snapshot=>{
-			const categories = snapshot.val()
-			let category, tmp=[], products=[]
-			for(category in categories){
-        list(`Categorias/${category}/Productos/`)
-        .on('value', snapshot=>{
-          const prods = snapshot.val()
-          let product, tmpp = []
-          for(product in prods){
-            tmpp.push({
-              id:product,
-              name:prods[product].nombre
-            })
-          }
-          products = tmpp;
-        })
-				tmp.push({
-					id:category,
-          name:categories[category].nombre,
-          products: products
-        })
-			}
-			this.setState({
-				categories:tmp
+    list("categories")
+		.then( response => {
+      return response.json();
+    })
+    .then( json => {
+      this.setState({
+				categories: json
       })
     })
   }
@@ -50,7 +32,7 @@ class Aside extends Component {
                 this.state.categories.map(category=>{
                   return <div>
                     <a className="section-categories">{category.name}</a>
-                      {category.products.map(products=>{
+                        {category.products.map(products=>{
                         return  <li>
                                   <a>{products.name}</a>
                                 </li>                      

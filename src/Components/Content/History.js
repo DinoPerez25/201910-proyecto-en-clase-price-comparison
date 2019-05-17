@@ -112,7 +112,7 @@ class History extends Component {
                                 </div>
                               </div>
                             </section>
-                              :
+                          :
                                 <Redirect to="/"/>
       )}
     </AuthConsumer>

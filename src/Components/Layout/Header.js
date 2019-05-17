@@ -7,7 +7,6 @@ class Header extends Component {
     super()
   }
   logout(e,logout){
-    localStorage.clear();
     logout()
   }
   

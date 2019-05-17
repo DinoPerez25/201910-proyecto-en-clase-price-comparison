@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import { AuthConsumer } from './../AuthContext';
-import {signIn} from './../../Services/firebase';
+import {signIn} from './../../Services/api';
 import {NotificationManager,NotificationContainer } from "react-notifications";
 
 class Signin extends Component {
@@ -19,9 +19,10 @@ class Signin extends Component {
   handleSubmit(e,login,isAuth){
     e.preventDefault()
   	signIn(this.state.email,this.state.password)
-		.then(()=>{
+    .then(()=>{
+			localStorage.setItem("user", this.state.email)
       login()
-			NotificationManager.success('Ingreso exitoso', 'Scrappy')
+      NotificationManager.success('Ingreso exitoso', 'Scrappy')
     })
 		.catch(error=>{
 			console.log(error.message)
@@ -52,7 +53,7 @@ class Signin extends Component {
                                           </label>
                                           <input
                                             type="text"
-                                            className="input"
+                                          className="input"
                                             placeholder="email"
                                             id="email"
                                             name="email"

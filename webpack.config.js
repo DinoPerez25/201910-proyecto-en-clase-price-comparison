@@ -25,7 +25,6 @@ module.exports = {
     open: true,
     historyApiFallback: true
   },
-  watch: true,
   mode: "development",
   module: {
     rules: [

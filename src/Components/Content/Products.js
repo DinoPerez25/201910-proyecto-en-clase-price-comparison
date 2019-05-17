@@ -62,7 +62,7 @@ class Products extends Component {
     })
   }
 
-  componentWillMount(){
+  componentDidMount(){
 		list(`Categorias/${this.props.match.params.id}/Productos`)
 		.on('value',snapshot=>{
 			const products = snapshot.val()

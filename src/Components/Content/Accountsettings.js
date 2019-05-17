@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {where,update} from './../../Services/firebase'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import {AuthConsumer} from './../AuthContext';
+import { Redirect } from 'react-router';
 import Compress from 'compress.js'
 const compress = new Compress()
 class Accountsettings extends Component {
@@ -91,76 +93,82 @@ handleSubmit(e){
 
   render() {
     return (
-      <article className="accountsettings">
-        <div>
-        <NotificationContainer/>
-        </div>
-        {
-          this.state.email &&
-        <div>
-         <h2 className="title">Configuración de cuenta</h2>
-          <div className="container-flex-h">
-            <div>
-              <form className="form" onSubmit={this.handleSubmit}>
-                <div>
-                  <label for="name" className="label">
-                    Nombre
+      <AuthConsumer>
+        {({isAuth})=>(
+          isAuth?
+          <article className="accountsettings">
+          <div>
+          <NotificationContainer/>
+          </div>
+          {
+            this.state.email &&
+          <div>
+           <h2 className="title">Configuración de cuenta</h2>
+            <div className="container-flex-h">
+              <div>
+                <form className="form" onSubmit={this.handleSubmit}>
+                  <div>
+                    <label for="name" className="label">
+                      Nombre
+                    </label>
+                    <input
+                      type="text"
+                      className="input"
+                      placeholder={this.state.name}
+                      id="name"
+                      name="name"
+                      title="Name"
+                      onChange = {this.handleChange}
+                    />
+                  </div>
+                  <div>
+                  <label for="address" className="label">
+                      Dirección
                   </label>
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder={this.state.name}
-                    id="name"
-                    name="name"
-                    title="Name"
-                    onChange = {this.handleChange}
-                  />
-                </div>
-                <div>
-                <label for="address" className="label">
-                    Dirección
-                </label>
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder={this.state.address}
-                    id="address"
-                    name="address"
-                    title="address"
-                    onChange = {this.handleChange}
-                  />
-                </div>
-                  <button className="button button-primary ">
-                    Actualizar
-                  </button>
-              </form>
+                    <input
+                      type="text"
+                      className="input"
+                      placeholder={this.state.address}
+                      id="address"
+                      name="address"
+                      title="address"
+                      onChange = {this.handleChange}
+                    />
+                  </div>
+                    <button className="button button-primary ">
+                      Actualizar
+                    </button>
+                </form>
+              </div>
+          <label htmlFor="profile-image">
+              <div className="profile-photo ">
+                <img
+                  className="profile-photo"
+                  src={this.state.profileImage}
+                />
+                 <span>
+                 <img
+                  src={require("../../CSS/icons/PNG/pencil.png")}
+                />
+                </span>
+              </div>
+            </label>
+            <input 
+                  name="profile-image" 
+                  id="profile-image" 
+                  className="hidden"
+                  type="file"
+                  accept="image/*"
+                  onChange={this.handleFile}
+            />
             </div>
-        <label htmlFor="profile-image">
-            <div className="profile-photo ">
-              <img
-                className="profile-photo"
-                src={this.state.profileImage}
-              />
-               <span>
-               <img
-                className="pencil"
-                src={require("../../CSS/icons/PNG/pencil.png")}
-              />
-              </span>
             </div>
-          </label>
-          <input 
-                name="profile-image" 
-                id="profile-image" 
-                className="hidden"
-                type="file"
-                accept="image/*"
-                onChange={this.handleFile}
-          />
-          </div>
-          </div>
-        }
-      </article>
+          }
+        </article>
+      :
+          <Redirect to="/" />
+      )}
+      </AuthConsumer>
     );
   }
 }
